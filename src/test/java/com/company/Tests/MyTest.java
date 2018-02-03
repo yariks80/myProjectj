@@ -17,7 +17,7 @@ public class MyTest extends BaseTest {
         WebDriver driver = app.common.getDriver();
         app.login.loginValidUser();
         String userName = app.home.getUserName();
-        Assert.assertEquals(userName, validUser.getUserName(), "user is not login");
+        Assert.assertEquals(userName, "jj", "user is not login");
 
     }
 }
