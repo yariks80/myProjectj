@@ -19,7 +19,8 @@ public class CommonHelper extends BasePage{
     }
 
   public byte[] getScreenShot() throws IOException {
-      byte[] screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
-      return screenshot;
+      File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+      FileUtils.copyFile(scrFile, new File("build/allure-results/failureScreenshot_" + scrFile.getName() + ".jpg"));
+    return   ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
   }
 }

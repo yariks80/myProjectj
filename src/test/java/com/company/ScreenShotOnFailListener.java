@@ -25,7 +25,7 @@ public class ScreenShotOnFailListener extends BaseTest implements ITestListener 
     @Override
     public void onTestFailure  (ITestResult iTestResult) {
         try {
-            screenshot();
+            app.common.getScreenShot();;
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -57,7 +57,6 @@ public class ScreenShotOnFailListener extends BaseTest implements ITestListener 
 
     @Attachment(value = "{0}", type = "image/png")
     public byte[] screenshot() throws IOException {
-
             return   app.common.getScreenShot();
 
     }
