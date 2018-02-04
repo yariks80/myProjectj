@@ -19,6 +19,7 @@ dependencies {
     testCompile group: 'org.testng', name: 'testng', version: '6.13.1'
     compile group: 'org.seleniumhq.selenium', name: 'selenium-server', version: '3.8.1'
     compile group: 'io.appium', name: 'java-client', version: '5.0.4'
+    compile group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.9.1'
 
     }
 test.doFirst {
@@ -28,6 +29,8 @@ task firefoxTest(type: Test) {
 
     systemProperty "driver", "firefox"
 
+
+
     useTestNG() {
         suites "testng.xml"
     }
@@ -35,7 +38,7 @@ task firefoxTest(type: Test) {
 task chromeTest(type: Test) {
 
     systemProperty "driver", "chrome"
-
+    testLogging.showStandardStreams = true
     useTestNG() {
         suites "testng.xml"
     }
